@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         val api = ApiInstance.getApiInstance().create(ApiServices::class.java)
         val call = api.getDataFromAPI()
 
+
         call.enqueue(object : Callback<Countries>{
             override fun onResponse(call: Call<Countries>, response: Response<Countries>) {
                 Log.d("isSuc", response.isSuccessful.toString())
