@@ -10,6 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import android.text.Html
 import com.example.geographicatlas.databinding.ActivityMainBinding
+import com.example.geographicatlas.fragments.CountriesList
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
@@ -23,22 +24,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val api = ApiInstance.getApiInstance().create(ApiServices::class.java)
-        val call = api.getDataFromAPI()
+        supportFragmentManager.beginTransaction().replace(R.id.fragmentList, CountriesList.newInstance()).commit()
 
-
-        call.enqueue(object : Callback<Countries>{
-            override fun onResponse(call: Call<Countries>, response: Response<Countries>) {
-                Log.d("isSuc", response.isSuccessful.toString())
-                Log.d("spain", response?.body()?.get(0)?.currencies.toString())
-                Log.d("isSuc", response.message().toString())
-            }
-
-            override fun onFailure(call: Call<Countries>, t: Throwable) {
-                Log.d("errorFail = " , t.message.toString())
-            }
-
-        })
 
     }
 }
