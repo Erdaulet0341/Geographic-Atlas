@@ -19,13 +19,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
-        supportActionBar?.title = Html.fromHtml("<font color=\"black\">" + getString(R.string.app_name) + "</font>");
+        supportActionBar?.title = Html.fromHtml("<font color=\"black\">" + getString(R.string.top_title) + "</font>");
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction().replace(R.id.fragmentList, CountriesList.newInstance()).commit()
-
-
     }
 }

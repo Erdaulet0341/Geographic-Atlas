@@ -20,7 +20,7 @@ data class Country(
     val flags: Flags,
     val gini: Gini,
     val idd: Idd,
-    val independent: Boolean,
+    var independent: Boolean,
     val landlocked: Boolean,
     val languages: Languages,
     val latlng: List<Double>,
@@ -35,5 +35,5 @@ data class Country(
     val timezones: List<String>,
     val tld: List<String>,
     val translations: Translations,
-    val unMember: Boolean
+    var unMember: Boolean
 )

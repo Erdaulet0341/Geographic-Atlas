@@ -12,6 +12,7 @@ import com.example.geographicatlas.R
 import com.example.geographicatlas.api.ApiInstance
 import com.example.geographicatlas.api.ApiServices
 import com.example.geographicatlas.data.Countries
+import com.example.geographicatlas.databinding.CountriesListItemBinding
 import com.example.geographicatlas.databinding.FragmentCountriesListBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,13 +23,11 @@ class CountriesList : Fragment() {
     lateinit var binding: FragmentCountriesListBinding
     lateinit var recyclerViewAdapter: CountriesListAdapter
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCountriesListBinding.inflate(inflater)
-
 
         setupRecyclerView()
         createList()
@@ -43,14 +42,24 @@ class CountriesList : Fragment() {
         call.enqueue(object: Callback<Countries>{
             override fun onResponse(call: Call<Countries>, response: Response<Countries>) {
                 val countries = response.body()!!
-                Log.d("size=" , countries.size.toString())
+
+//                Log.d("size=" , countries.size.toString())
+                countries.forEach{ i -> i.unMember = true }
+
+//                var setContinents = mutableSetOf<String>()
+//                countries.forEach {
+//                    setContinents.add(it.continents[0])
+//                }
+//                Log.d("set", setContinents.toString())
+
+
                 recyclerViewAdapter.setList(countries)
                 recyclerViewAdapter.notifyDataSetChanged()
             }
 
             override fun onFailure(call: Call<Countries>, t: Throwable) {
-                Log.d("errorFail = " , t.message.toString())
-                Toast.makeText(activity, t.message, Toast.LENGTH_SHORT).show()
+                Log.d("errorFailure" , t.message.toString())
+                Toast.makeText(activity, "Check internet connection and try again!", Toast.LENGTH_SHORT).show()
             }
 
         })
@@ -59,7 +68,7 @@ class CountriesList : Fragment() {
     private fun setupRecyclerView() {
         binding.recyclerList.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-            recyclerViewAdapter = CountriesListAdapter()
+            recyclerViewAdapter = CountriesListAdapter(requireContext())
             adapter = recyclerViewAdapter
         }    }
 
