@@ -10,3 +10,7 @@ In this poject 2 page
 
 ![](https://github.com/Erdaulet0341/GeographicAtlas/blob/master/Readme/ezgif.com-resize%20(1).gif)
 ![](https://github.com/Erdaulet0341/GeographicAtlas/blob/master/Readme/ezgif.com-resize%20(2).gif)
+
+# Country details page when some data is none in API
+
+![](https://github.com/Erdaulet0341/GeographicAtlas/blob/master/Readme/ezgif.com-resize%20(3).gif)
