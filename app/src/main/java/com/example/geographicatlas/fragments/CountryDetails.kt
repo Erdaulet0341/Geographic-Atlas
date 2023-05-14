@@ -14,8 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.geographicatlas.R
 import com.example.geographicatlas.api.ApiInstance
 import com.example.geographicatlas.api.ApiServices
-import com.example.geographicatlas.data.mainData.Countries
-import com.example.geographicatlas.data.mainData.CountriesList
+import com.example.geographicatlas.data.Countries
 import com.example.geographicatlas.databinding.FragmentCountryDetailsBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -145,6 +144,15 @@ class CountryDetails : Fragment() {
                     .error(R.drawable.ic_baseline_hide_image_24)
                     .fallback(R.drawable.ic_baseline_access_time_24)
                     .into(img)
+
+
+                //for currency
+                var currencyText = ""
+                for (currency in country.currencies.values) {
+                    currencyText += "${currency.name}(${currency.symbol ?: "No symbol"})\n"
+                }
+
+                binding.currencyDet.text = currencyText
 
                 //for progress bar
                 binding.progressBar2.visibility = View.INVISIBLE

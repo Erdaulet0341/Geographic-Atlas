@@ -1,6 +1,6 @@
 package com.example.geographicatlas.api
 
-import com.example.geographicatlas.data.mainData.Countries
+import com.example.geographicatlas.data.Countries
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
