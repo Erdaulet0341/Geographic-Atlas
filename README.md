@@ -1,5 +1,6 @@
 # Geographic Atlas
 In this poject 2 page
+[UI of this project](https://www.figma.com/file/w2JjW6RXKnx6tkLZR6qCpj/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5--%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-Android?type=design&node-id=0-1&t=y2v7gCjzR02IvArv-0)
 
 # First page list of countries:
 
