@@ -2,16 +2,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:aapt="http://schemas.android.com/aapt"
     android:width="328dp"
-    android:height="72dp"
+    android:height="202dp"
     android:viewportWidth="328"
-    android:viewportHeight="72"
+    android:viewportHeight="202"
     >
     <group>
         <clip-path
-            android:pathData="M12 0H316C322.627 0 328 5.37258 328 12V60C328 66.6274 322.627 72 316 72H12C5.37258 72 0 66.6274 0 60V12C0 5.37258 5.37258 0 12 0Z"
+            android:pathData="M12 0H316C322.627 0 328 5.37258 328 12V190C328 196.627 322.627 202 316 202H12C5.37258 202 0 196.627 0 190V12C0 5.37258 5.37258 0 12 0Z"
             />
         <path
-            android:pathData="M0 0V72H328V0"
+            android:pathData="M0 0V202H328V0"
             android:fillColor="#F7F8F9"
             />
     </group>

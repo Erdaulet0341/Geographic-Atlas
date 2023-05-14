@@ -2,16 +2,10 @@ package com.example.geographicatlas
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.example.geographicatlas.api.ApiInstance
-import com.example.geographicatlas.api.ApiServices
-import com.example.geographicatlas.data.Countries
-import retrofit2.Call
-import retrofit2.Callback
 import android.text.Html
+import android.view.MenuItem
 import com.example.geographicatlas.databinding.ActivityMainBinding
-import com.example.geographicatlas.fragments.CountriesList
-import retrofit2.Response
+import com.example.geographicatlas.data.mainData.CountriesList
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,5 +19,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction().replace(R.id.fragmentList, CountriesList.newInstance()).commit()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == android.R.id.home) {
+            supportFragmentManager.beginTransaction().replace(R.id.fragmentList, CountriesList.newInstance()).commit()
+            supportActionBar?.title = Html.fromHtml("<font color=\"black\">" + getString(R.string.top_title) + "</font>");
+            supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        }
+        return true
     }
 }
