@@ -151,15 +151,7 @@ class CountryDetails : Fragment() {
                 if(country.currencies?.toString() != null && country.currencies.values?.toString() != null){
                     country.currencies.values.forEachIndexed { index, element ->
                         val matchingKey = country.currencies.entries.find { it.value.name == element.name }?.key
-                        if(country.currencies.values.size == 1){
-                            currencyText += "${element.name} (${element.symbol ?: "None symbol"}) ($matchingKey) "
-                        }
-                        else if(index == country.currencies.values.size-1){
-                            currencyText += "${element.name} (${element.symbol ?: "None symbol"}) ($matchingKey) "
-                        }
-                        else {
-                            currencyText += "${element.name} (${element.symbol ?: "None symbol"}) ($matchingKey), "
-                        }
+                        currencyText += "${element.name} (${element.symbol ?: "None symbol"}) ($matchingKey)\n"
                     }
                     binding.currencyDet.text = currencyText
                 }
