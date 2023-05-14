@@ -15,6 +15,6 @@ In this poject used 2 activity, 2 fragment, 1 adapter class and 7 data class.
 ![](https://github.com/Erdaulet0341/GeographicAtlas/blob/master/Readme/ezgif.com-resize%20(1).gif)
 ![](https://github.com/Erdaulet0341/GeographicAtlas/blob/master/Readme/ezgif.com-resize%20(2).gif)
 
-# Country details page when some data is none in API
+# Country details page when some data is none in the API
 
 ![](https://github.com/Erdaulet0341/GeographicAtlas/blob/master/Readme/ezgif.com-resize%20(3).gif)
