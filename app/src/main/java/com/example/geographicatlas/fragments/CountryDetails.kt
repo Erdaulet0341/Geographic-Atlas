@@ -31,15 +31,15 @@ class CountryDetails : Fragment() {
     ): View? {
         binding = FragmentCountryDetailsBinding.inflate(inflater)
         binding.progressBar2.visibility = View.VISIBLE
+
         val args = arguments
         val cca2 = args?.getString("cca2")!!
 //        Log.d("cca2" , cca2)
+
         (activity as AppCompatActivity).supportActionBar?.apply {
             setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24)
             setDisplayHomeAsUpEnabled(true)
         }
-
-//        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         createPage(cca2)
 
@@ -148,11 +148,24 @@ class CountryDetails : Fragment() {
 
                 //for currency
                 var currencyText = ""
-                for (currency in country.currencies.values) {
-                    currencyText += "${currency.name}(${currency.symbol ?: "No symbol"})\n"
+                if(country.currencies?.toString() != null && country.currencies.values?.toString() != null){
+                    country.currencies.values.forEachIndexed { index, element ->
+                        val matchingKey = country.currencies.entries.find { it.value.name == element.name }?.key
+                        if(country.currencies.values.size == 1){
+                            currencyText += "${element.name} (${element.symbol ?: "None symbol"}) ($matchingKey) "
+                        }
+                        else if(index == country.currencies.values.size-1){
+                            currencyText += "${element.name} (${element.symbol ?: "None symbol"}) ($matchingKey) "
+                        }
+                        else {
+                            currencyText += "${element.name} (${element.symbol ?: "None symbol"}) ($matchingKey), "
+                        }
+                    }
+                    binding.currencyDet.text = currencyText
                 }
-
-                binding.currencyDet.text = currencyText
+                else{
+                    binding.currencyDet.text = "None currency"
+                }
 
                 //for progress bar
                 binding.progressBar2.visibility = View.INVISIBLE

@@ -34,6 +34,7 @@ class CountriesListAdapter(private val context: Context, private val fragmentMan
 
         fun bind(country: Country){
             binding.nameOfCountry.text = country.name.common
+
             binding.capital.text =  country.capital?.get(0)
 
             if(country.capital?.get(0) == null){
@@ -71,7 +72,6 @@ class CountriesListAdapter(private val context: Context, private val fragmentMan
             }
 
             val img = binding.imgList
-
             val url = country.flags.png
             Glide.with(img)
                 .load(url)
@@ -79,7 +79,6 @@ class CountriesListAdapter(private val context: Context, private val fragmentMan
                 .error(R.drawable.ic_baseline_hide_image_24)
                 .fallback(R.drawable.ic_baseline_access_time_24)
                 .into(img)
-
 
 
             var currencyText = ""
@@ -101,6 +100,7 @@ class CountriesListAdapter(private val context: Context, private val fragmentMan
             else{
                 binding.currencyList.text = "None currency"
             }
+
         }
     }
 
