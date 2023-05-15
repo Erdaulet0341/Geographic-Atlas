@@ -1,5 +1,7 @@
 package com.example.geographicatlas.fragments
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
@@ -15,6 +17,7 @@ import com.example.geographicatlas.R
 import com.example.geographicatlas.api.ApiInstance
 import com.example.geographicatlas.api.ApiServices
 import com.example.geographicatlas.data.Countries
+import com.example.geographicatlas.data.Country
 import com.example.geographicatlas.databinding.FragmentCountryDetailsBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,6 +46,10 @@ class CountryDetails : Fragment() {
 
         createPage(cca2)
 
+        binding.CapitalCoorDet.setOnClickListener {
+            openInBrowser(cca2)
+        }
+
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner, object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
@@ -54,6 +61,21 @@ class CountryDetails : Fragment() {
         )
         return binding.root
     }
+
+    private fun openInBrowser(cca2: String) {
+        val api = ApiInstance.getApiInstance().create(ApiServices::class.java)
+        val call = api.getCountryByCode(cca2)
+        call.enqueue(object : Callback<Countries>{
+            override fun onResponse(call: Call<Countries>, response: Response<Countries>) {
+                val country = response.body()?.get(0)!!
+                val googleMap = country.maps.googleMaps
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(googleMap))
+                startActivity(intent)
+            }
+            override fun onFailure(call: Call<Countries>, t: Throwable) {}
+        })
+    }
+
 
     private fun createPage(cca2: String) {
         val api = ApiInstance.getApiInstance().create(ApiServices::class.java)
