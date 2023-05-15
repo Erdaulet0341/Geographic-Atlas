@@ -31,4 +31,4 @@ In advanced requirments, when user click the “Capital coordinates” from coun
 
 
 
-My work in android: [Remote Shop](https://github.com/Erdaulet0341/AndroidStudioProjects/tree/master/RemoteShop), [News](https://github.com/Erdaulet0341/AndroidStudioProjects/tree/master/NewsUs), [Book Store](https://github.com/Erdaulet0341/AndroidStudioProjects/tree/master/BookStore)
+My works in android: [Remote Shop](https://github.com/Erdaulet0341/AndroidStudioProjects/tree/master/RemoteShop), [News](https://github.com/Erdaulet0341/AndroidStudioProjects/tree/master/NewsUs), [Book Store](https://github.com/Erdaulet0341/AndroidStudioProjects/tree/master/BookStore)
