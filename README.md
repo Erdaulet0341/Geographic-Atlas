@@ -29,3 +29,6 @@ In advanced requirments, when user click the “Capital coordinates” from coun
 ![](https://github.com/Erdaulet0341/GeographicAtlas/blob/master/Readme/bras_gif.gif)
 ![](https://github.com/Erdaulet0341/GeographicAtlas/blob/master/Readme/ezgif.com-resize%20(4).gif)
 
+
+
+My work in android: [Remote Shop](https://github.com/Erdaulet0341/AndroidStudioProjects/tree/master/RemoteShop), [News](https://github.com/Erdaulet0341/AndroidStudioProjects/tree/master/NewsUs), [Book Store](https://github.com/Erdaulet0341/AndroidStudioProjects/tree/master/BookStore)
